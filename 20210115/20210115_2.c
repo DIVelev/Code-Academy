@@ -2,8 +2,7 @@
 
 int main() 
 {
-printf("Size of literal default integer %d\n",
-sizeof(3));
+printf("Size of literal default integer %d\n",sizeof(3));
 printf("Size of literal U: %ld\n", sizeof(3U));
 printf("Size of literal I: %ld\n", sizeof(3I));
 printf("Size of literal L: %ld\n", sizeof(3L));
