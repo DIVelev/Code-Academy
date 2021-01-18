@@ -6,7 +6,7 @@ int main(void)
 {
     char ch;
     printf("Enter a char :\n");
-    scanf("%c",&ch);
+    getchar(ch);
     int rez = isLetter(ch);
     if (rez == 1)
     {
