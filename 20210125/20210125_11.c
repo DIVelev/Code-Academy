@@ -15,6 +15,7 @@ int main(void){
         else{
             s[i] = '\0';
             reverse(s);
+            printf("%s\n",s);
             i = 0;
         }
 
@@ -25,18 +26,13 @@ int main(void){
 
 void reverse(char s[]){
 
-    int end = strlen(s) - 1;
+    int i,j;
+    char temp;
 
-    for (end; end >= 0; end--){
-        printf("%c",s[end]);
+    for (i = 0, j = strlen(s) - 1; i < j; i++, j--){
+        temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
     }
- 
-   /* char temp;
-
-    for (int start = 0; start < end; start++, end--){
-        temp = s[start];
-        s[start] = s[end];
-        s[end] = temp;
-    } */
 
 }
