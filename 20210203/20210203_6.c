@@ -15,6 +15,7 @@ int main(void){
     scanf("%d",&b);
     printf("Values before swap: a = %d, b = %d \n",a,b);
     my_swap(&a,&b);
+    printf("Swapped values: a = %d, b = %d\n",a,b);
 
     return 0;
 }
@@ -25,6 +26,5 @@ void my_swap(int* a,int* b){
     *b = *a - *b;
     *a = *a - *b;
 
-    printf("Swapped values: a = %d, b = %d\n",*a,*b);
 
 }
