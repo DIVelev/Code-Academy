@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define size 16
+/*Задача 19.
+Напишете програма, която да създаде стек (LIFO) от 16 елемента, който
+има следното API
+int pop()
+void push()
+int top()
+int isFull()*/
+
+int stack[size];
+int flag = -1;
+
+int pop();
+void push(int data);
+int top();
+int isFull();
+int isEmpty();
+
+int main(void){
+    
+    push(3);
+    push(5);
+    push(9);
+    push(1);
+    push(12);
+    push(15);
+    printf("Element at top of the stack: %d\n", top());
+    printf("Elements: \n");
+    while (!isEmpty()){
+        int data = pop();
+        printf("%d\n", data);
+    }
+    printf("Stack full: %s\n", isFull() ? "true" : "false");
+    printf("Stack empty: %s\n", isEmpty() ? "true" : "false");
+
+    return 0;
+}
+
+int pop(){
+
+    int data;
+    if(isEmpty() != 1){
+        data = stack[flag];
+        flag = flag - 1;
+        return data;
+    }
+    else{
+        printf("Stack is empty.\n");
+    }
+    
+}
+
+void push(int data){
+
+    if(isFull() != 1){
+        flag = flag + 1;
+        stack[flag] = data;
+    }
+    else{
+        printf("Stack is full\n");
+    }
+
+}
+
+int top(){
+    return stack[flag];
+}
+
+
+int isFull(){
+    if(flag == size){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int isEmpty(){
+    if(flag == -1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
