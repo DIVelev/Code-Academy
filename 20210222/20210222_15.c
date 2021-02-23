@@ -24,7 +24,7 @@ int writeToFile(struct variables array[],char const *fileName);
 
 int main(void){
 
-    struct variables var[20] = {[0] = {1,"Hello",3.4,one}, [1] = {2,"Hello",3.6,two}, [2] = {3,"Hello",3.8,three}, [3] = {4,"Hello",4.8,four}, [4] = {5,"Hello",5.1,five},
+    struct variables var[20] = {[0] = {1,"Start",3.4,one}, [1] = {2,"Hello",3.6,two}, [2] = {3,"Hello",3.8,three}, [3] = {4,"Hello",4.8,four}, [4] = {5,"Hello",5.1,five},
     [5] = {5,"Hello",5.1,six},[6] = {5,"Hello",5.1,seven},[7] = {7,"Hello",5.1,eight},[8] = {2,"Hello",5.1,nine},[9] = {5,"Hello",5.1,ten},[10] = {5,"Hello",5.1,eleven}
     ,[11] = {4,"Hello",5.1,twelve},[12] = {5,"Hello",5.1,thirteen},[13] = {7,"Hello",5.1,fourteen},[14] = {2,"Hello",5.1,fifteen},[15] = {5,"Hello",5.1,sixteen},
     [16] = {5,"Hello",5.1,seventeen},[17] = {3,"Hello",5.1,eighteen},[18] = {6,"Hello",5.1,nineteen},[19] = {8,"End",9.75,twenty}};
