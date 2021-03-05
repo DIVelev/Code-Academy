@@ -70,6 +70,12 @@ int main(void){
     printf("Result structure after subtracting 2 structures:\n");
     printTime(subtractResult);
 
+
+    free(time1);
+    free(time2);
+    free(structReturn);
+    free(addResult);
+    free(subtractResult);
     return 0;
 }
 

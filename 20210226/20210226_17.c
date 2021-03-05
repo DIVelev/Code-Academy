@@ -44,6 +44,8 @@ int main(void){
     pumpkins = fillPumpkinArray(pumpkinNumber);
     findBetterMelon(melons,melonNumber,pumpkins,pumpkinNumber);
 
+    free(melons);
+    free(pumpkins);
     return 0;
 }
 

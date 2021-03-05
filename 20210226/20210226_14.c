@@ -28,6 +28,7 @@ int main(void){
     part = fillParticipants(number);
     printParticipants(part,number);
 
+    free(part);
     return 0;
 }
 

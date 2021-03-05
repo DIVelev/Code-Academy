@@ -28,6 +28,7 @@ int main(void){
     part = sortParticipants(part,number);
     printParticipants(part,number);
 
+    free(part);
     return 0;
 }
 
