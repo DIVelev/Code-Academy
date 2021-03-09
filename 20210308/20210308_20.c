@@ -45,7 +45,7 @@ int main(void){
 
     FILE *fin;
     char *fileName = "INPUT3.txt";
-    fin = fopen(fileName,"rt");
+    fin = fopen(fileName,"r");
     if (fin == NULL){
         printf("File failed to open\n");
         return -1;
@@ -76,10 +76,10 @@ int main(void){
 
     int n = atoi(numberString);
     printf("Destination in km is: %d \n",n);
-    
+
     FILE *fout;
     char *fileNameOut = "OUTPUT3.txt";
-    fout = fopen(fileNameOut,"wt");
+    fout = fopen(fileNameOut,"w");
     if (fout == NULL){
         printf("File failed to open\n");
         exit(1);
@@ -88,25 +88,25 @@ int main(void){
     int j,k,l;
     int sum = 0;
 
-    for (i = 1; i < n; i++){
-        for (j = i; j < n; j++) 
-            for (k = j; k < n; k++) 
-                for (l = k; l < n; l++) 
-                    if (i + j + k + l == n)
-                    break;
+    for (i = 1; i < 10; i++){
+        for (j = i; j < 10; j++) 
+            for (k = j; k < 10; k++) 
+                for (l = k; l < 10; l++) 
+                    if (i + j + k + l == n){
+                        fprintf(fout,"%d\t %d\n",i,numArray[i]);
+                        fprintf(fout,"%d\t %d\n",j,numArray[j]);
+                        fprintf(fout,"%d\t %d\n",k,numArray[k]);
+                        fprintf(fout,"%d\t %d\n",l,numArray[l]);
+                        sum = numArray[i] + numArray[j] + numArray[k] + numArray[l];
+                        fprintf(fout,"%d",sum);
+                        goto finish;
+                    }
     }
 
-    fprintf(fout,"%d\t %d\n",i,numArray[i]);
-    fprintf(fout,"%d\t %d\n",j,numArray[j]);
-    fprintf(fout,"%d\t %d\n",k,numArray[k]);
-    fprintf(fout,"%d\t %d\n",l,numArray[l]);
-
-    sum = numArray[i] + numArray[j] + numArray[k] + numArray[l];
-    fprintf(fout,"%d",sum);
-
+    finish:
+    printf("Found the optimal destination path!\n");
     fclose(fout);
     fout = NULL;
-
     fclose(fin);
     fin = NULL;
     return 0;
