@@ -39,11 +39,13 @@ OUTPUT3.TXT
 147 
 */
 
+void splitNumber(int n,int numberArray[number]);
+
 int main(void){
 
     FILE *fin;
     char *fileName = "INPUT3.txt";
-    fin = fopen(fileName,"r");
+    fin = fopen(fileName,"rt");
     if (fin == NULL){
         printf("File failed to open\n");
         return -1;
@@ -72,30 +74,39 @@ int main(void){
         }
     }
 
-    int destination = atoi(numberString);
-    printf("Destination in km is: %d \n",destination);
-
+    int n = atoi(numberString);
+    printf("Destination in km is: %d \n",n);
+    
     FILE *fout;
     char *fileNameOut = "OUTPUT3.txt";
-    fout = fopen(fileNameOut,"w");
+    fout = fopen(fileNameOut,"wt");
     if (fout == NULL){
         printf("File failed to open\n");
-        return -1;
+        exit(1);
     } 
 
-    while(number >= 0){
-        if(number >= 10){
-            if(number/2 >= 10){
-                fprintf(fout,"%d\t%d\n",10,numArray[10]);
-            }
-            else{
-                
-            }
-        }
+    int j,k,l;
+    int sum = 0;
+
+    for (i = 1; i < n; i++){
+        for (j = i; j < n; j++) 
+            for (k = j; k < n; k++) 
+                for (l = k; l < n; l++) 
+                    if (i + j + k + l == n)
+                    break;
     }
+
+    fprintf(fout,"%d\t %d\n",i,numArray[i]);
+    fprintf(fout,"%d\t %d\n",j,numArray[j]);
+    fprintf(fout,"%d\t %d\n",k,numArray[k]);
+    fprintf(fout,"%d\t %d\n",l,numArray[l]);
+
+    sum = numArray[i] + numArray[j] + numArray[k] + numArray[l];
+    fprintf(fout,"%d",sum);
 
     fclose(fout);
     fout = NULL;
+
     fclose(fin);
     fin = NULL;
     return 0;
