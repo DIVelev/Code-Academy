@@ -1,5 +1,5 @@
 {Testing my curly brackets}
-(Testing my brackets)
+(Testing my brackets)]
 [Testing my straight brackets]
-{(Testing missing bracket}
-(Testing missing curly bracket})
+{(Testing missing bracket}}
+(Testing missing curly bracket)
