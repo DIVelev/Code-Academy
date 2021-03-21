@@ -66,6 +66,7 @@ void init(){
 }
 
 void printUsers(branch *head){
+    /*prints all the users*/
     branch *current_user = head;
     printf("List of all users:\n");
     while(current_user != NULL){
@@ -77,6 +78,7 @@ void printUsers(branch *head){
 
 branch *addUser(branch *head){
 
+    /*adds a new user to the social media*/
     branch *new_user;
     char *userName,*email;
     int result;
@@ -84,10 +86,10 @@ branch *addUser(branch *head){
     email = (char*)malloc(MAXLEN*sizeof(char));
     new_user = (branch*)malloc(sizeof(branch));
     printf("Please enter the name of the main user (up to 30 characters, without numbers, will be saved):\n");
-    fflush(stdin);
+    fflush(stdin); /*flushing, so that we don't get the \n (new line) at the end of the printf as the string*/
     fgets(userName,MAXLEN,stdin);
-    userName[strcspn(userName, "\n")] = 0;
-    result = checkUserName(userName);
+    userName[strcspn(userName, "\n")] = 0; /* removing the last saved \n (new line) in the string*/
+    result = checkUserName(userName); /* checking if the username is valid, without symbols or numbers*/
     while(result == 1){
         printf("Please enter a valid name of the main user (up to 30 characters, without numbers, will be saved):\n");
         fflush(stdin);
@@ -102,7 +104,7 @@ branch *addUser(branch *head){
     fflush(stdin);
     fgets(email,MAXLEN,stdin);
     email[strcspn(email, "\n")] = 0;
-    result = checkEmail(email);
+    result = checkEmail(email); /* checking if the email is valid*/
     while(result == 1){
         printf("Please enter a valid email of the main user (up to 30 characters, without numbers, will be saved):\n");
         fflush(stdin);
@@ -120,6 +122,7 @@ branch *addUser(branch *head){
 }
 
 int checkUserName(char string[]){
+    /* checking if the username is valid, without symbols or numbers*/
     int i,stringLen;
     stringLen = strlen(string);
     for(i=0;i<stringLen - 1;i++){
@@ -135,7 +138,7 @@ int checkUserName(char string[]){
 }
 
 int checkEmail(char string[]){
-
+    /*checking if the email is valid, if there are multiple @ or if there isnt a dot after the @*/
     int i,stringLen,dot,atSymbol,validStart;
     stringLen = strlen(string);
     if((string[0] >= 'a' && string[0] <= 'z') || (string[0] >= 'A' && string[0] <= 'Z')){
@@ -170,7 +173,8 @@ int checkEmail(char string[]){
 
 branch *addFriends(branch *head){
 
-    branch *user = findUser(head);
+    /*adding friends by searching a specific user*/
+    branch *user = findUser(head); /*finding the user by his/her details - name and email*/
     char *friendName, *friendFamily;
     friendName = (char*)malloc(MAXLEN * sizeof(char));
     friendFamily = (char*)malloc(MAXLEN * sizeof(char));
@@ -224,6 +228,7 @@ branch *addFriends(branch *head){
 
 void printFriends(branch *head){
 
+    /*printing the friends of a specific user*/
     branch *current_user = head;
     int i;
     printf("User:\n");
@@ -238,6 +243,7 @@ void printFriends(branch *head){
 
 branch *findUser(branch *head){
 
+    /*finding a specific user by his/her details - name and email*/
     branch *current = head;
     int choice;
     if(head == NULL){
@@ -343,6 +349,7 @@ branch *findUser(branch *head){
 
 void printList(branch *head){
 
+    /*printing all users and their saved friends*/
     branch *current_user = head;
     int i;
     while(current_user != NULL){
@@ -364,6 +371,8 @@ void printList(branch *head){
 }
 
 branch *deleteFriends(branch *head){
+
+    /*deleting the friends/friend of a specific user by his/her details*/
 
     branch *current_user = head;
 
@@ -413,6 +422,7 @@ branch *deleteFriends(branch *head){
         if((strcmp(current_user->newFriend[i].name,firstName)) == 0){
             if((strcmp(current_user->newFriend[i].familyName,familyName)) == 0){
                 printf("Friend found! \n");
+                /*moving the records of a friend by using memmove so that we can free the already deleted memory*/
                 memmove(&current_user->newFriend[i].name,&current_user->newFriend[i+1].name,(current_user->friendsNumber - i - 1)*sizeof(friends));
                 memmove(&current_user->newFriend[i].familyName,&current_user->newFriend[i+1].familyName,(current_user->friendsNumber - i - 1)*sizeof(friends));
                 memset(&current_user->newFriend[current_user->friendsNumber-1].name,0,sizeof(friends));
@@ -452,6 +462,8 @@ branch *deleteFriends(branch *head){
 
 void serializeToXML(branch *head){
 
+    /*serializating to xml format files*/
+
     if (head == NULL){
         printf("Serialization failed! There are no users saved! \n");
         exit(2);
@@ -479,6 +491,8 @@ void serializeToXML(branch *head){
 
 branch *deserializeXML(void){
 
+    /*deserializing an xml format document by searching for a specific words and counting the number of friends for a user*/
+    
     branch *getUser = (branch*)malloc(sizeof(branch));
     FILE *fin;
     char* fileName = (char*)malloc(MAXLEN * sizeof(char));
