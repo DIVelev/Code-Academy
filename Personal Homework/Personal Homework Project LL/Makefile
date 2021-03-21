@@ -1,15 +1,15 @@
 CC=gcc
-CFLAGS = -WALL -g 
+CFLAGS= -g
 DEPS = social_media.h
-COMPILE=$(CC) -g
+OBJ = social_media.o social_media_func.o 
 
-CFILES=$(dir \s *.c*) #social_media_func.c social_media.c
-OBJECT=social_media_func.c.o social_media.o #$(CFILES:.c=.o)
-TARGET=social_media
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(TARGET):$(OBJECT)
-	$(COMPILE) -o $@ $(OBJECT)
-.c:.o
-	$(COMPILE) -c $< -o $@
+social_media: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+.PHONY: clean
+
 clean:
-	del $(TARGET).exe $(OBJECT)
+	del social_media.o social_media.exe social_media_func.o
