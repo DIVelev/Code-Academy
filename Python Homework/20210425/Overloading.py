@@ -5,18 +5,12 @@ class Parent:
     
     # Sum2 - Test for multiply operator *
     def sum2(self,first,second):
-        if (type(first) == str):
-            if(type(second) == str):
-                return first + second
-            else:
-                return first * second
+        if ((type(first) == str) and (type(second) == str)) or ((type(first) == int) and (type(second) == int)):
+            return first + second
         else:
-            if(type(second) == str):
-                return first * second
-            else:
-                return first + second
+            return first * second
 
-#Creating an object for class Parent      
+#Creating an object for class Parent       
 obj = Parent()
 #Testing sum1 with numbers
 result = obj.sum1(4,5)
