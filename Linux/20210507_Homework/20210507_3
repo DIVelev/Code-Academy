@@ -1,0 +1,3 @@
+/*3. Copy the files house1 and house5 to the $HOME/projects/houses/ directory. */
+
+cp projects/{house1,house5} $HOME/projects/houses/            /* Копирам файловете house1 и house5 в от директорията projects в директорията houses */
