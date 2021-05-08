@@ -1,0 +1,37 @@
+/*Make the $HOME/projects/houses/doors/ directory path. Create the following empty fi les within this directory path (try using absolute and relative paths from your home directory):
+$HOME/projects/houses/bungalow.txt
+$HOME/projects/houses/doors/bifold.txt
+$HOME/projects/outdoors/vegetation/landscape.txt*/
+
+/*Абсолютен път*/
+mkdir -p $HOME/projects/houses/doors                 /* Използвам опцията -p, за да създам директориите, които не съществуват и да избегна грешката. Създавам houses и doors */
+cd projects                                          /* Влизам в директорията projects */
+ls                                                   /* Проверявам, дали е създадена директорията houses */
+cd houses                                            /* Влизам в директорията houses */
+ls                                                   /* Проверявам, дали е създадена директорията doors */
+cd ~                                                 /* Влизам в директорията home */
+touch $HOME/projects/houses/bungalow.txt             /* Създавам празен текстови файл, в директорията houses, като използвам абсолютен път (посочен е целият path за създаване) */
+touch $HOME/projects/houses/doors/bifold.txt         /* Създавам празен текстови файл, в директорията doors, като използвам абсолютен път (посочен е целият path за създаване) */
+cd projects/houses                                   /* Влизам в директорията houses */
+ls                                                   /* Проверявам, дали е създаден текстовият файл bungalow */
+cd doors                                             /* Влизам в директорията doors */
+ls                                                   /* Проверявам, дали е създаден текстовият файл bifold */
+cd ~                                                 /* Влизам в директорията home */
+mkdir -p $HOME/projects/outdoors/vegetation          /* Използвам опцията -p, за да създам директориите, които не съществуват и да избегна грешката. Създавам outdoors и vegetation */
+touch $HOME/projects/outdoors/vegetation/landscape.txt  /* Създавам празен текстови файл, в директорията vegetation, като използвам абсолютен път (посочен е целият path за създаване) */
+cd projects/outdoors/vegetation                      /* Влизам в директорията vegetation */
+ls                                                   /* Проверявам, дали е създаден текстовият файл landscape */
+cd ~                                                 /* Влизам в директорията home */
+
+/*Релативен път*/
+cd projects/houses                                   /* Влизам в директорията houses */
+touch bungalow.txt                                   /* Създавам празен текстови файл, в директорията houses, като използвам релативен път (вече съм в директорията, може да се провери с pwd) */
+ls                                                   /* Проверявам, дали е създаден текстовият файл bungalow */
+cd doors                                             /* Влизам в директорията doors */
+touch bifold.txt                                     /* Създавам празен текстови файл, в директорията doors, като използвам релативен път (вече съм в директорията, може да се провери с pwd) */
+ls                                                   /* Проверявам, дали е създаден текстовият файл bifold */
+cd ~                                                 /* Влизам в директорията home*/
+mkdir -p $HOME/projects/outdoors/vegetation          /* Използвам опцията -p, които вече съществуват, но ако ги няма да ги създаде и да избегна грешката. Създавам outdoors и vegetation */
+cd projects/outdoors/vegetation                      /* Влизам в директорията vegetation */ 
+touch landscape.txt                                  /* Създавам празен текстови файл, в директорията vegetation, като използвам релативен път (вече съм в директорията, може да се провери с pwd) */
+ls                                                   /* Проверявам, дали е създаден текстовият файл landscape */
