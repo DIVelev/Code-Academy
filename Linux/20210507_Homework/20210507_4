@@ -1,0 +1,5 @@
+/*Remove the files house6, house7, and house8 without being prompted. */
+
+rm -f projects/house{6..8}      /* Изтриваме "със сила" ( force-нато, без да питаме user-а дали се съгласява ) , файловете house6,house7,house8 от директорията projects */
+cd projects                     /* Влизам в директорията projects */
+ls                              /* Проверявам, дали файловете са изтрити успешно */
