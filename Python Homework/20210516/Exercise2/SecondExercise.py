@@ -8,4 +8,5 @@ class StringTesting():
         return self.string
         
     def printString(self):
+        print(self.string.upper())
         return self.string.upper()
