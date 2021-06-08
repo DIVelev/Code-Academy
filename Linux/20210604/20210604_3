@@ -37,7 +37,6 @@ case $OPERATION in    // Проверявам какъв е знака
   
 esac
 
-
 ls -la calculator.sh  // Проверявам правата
 
 chmod u+x calculator.sh   // Давам права на user-a за execute
