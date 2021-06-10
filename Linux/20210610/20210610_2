@@ -28,4 +28,6 @@ else
 fi
 echo the following filename has been provided: $VAR
 
+chmod u+x test2.sh
+
 ./a.out |./test2.sh
