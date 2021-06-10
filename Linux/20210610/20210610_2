@@ -1,0 +1,31 @@
+/* Напишете С файл, който да принтира число и го компилирайте.
+Пуснете в пайп екзето ./а.оut |./test2 със скрипта test2 за да
+прихванете изхода от скрипта и да принтирате с ехо текста the
+following result have been provided from result2.c: 666 и резултта от
+екзето. */
+
+cat > number.c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+  int a = 444;
+  printf("%d",a);
+  return 0;
+}
+
+cat > test2.sh
+
+#!/bin/bash
+
+if [ -z $1 ]
+then
+    echo No arguments of command line
+    read VAR
+else
+    VAR=$1
+fi
+echo the following filename has been provided: $VAR
+
+./a.out |./test2.sh
