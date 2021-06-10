@@ -1,0 +1,16 @@
+/* 3. Напишете скрипт, който да разпределя 32-ма участника в отбори по
+трима на случаен принцип използвайки RANDOM */
+
+cat > exercise3.sh
+
+#!/bin/bash
+
+for (( i = 0; i < 30; i++))
+do
+    TEAM=$(((RANDOM%32)+1))
+    echo $TEAM
+done
+
+chmod u+x exercise3.sh
+
+./exercise3.sh
