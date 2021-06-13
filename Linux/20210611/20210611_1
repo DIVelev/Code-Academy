@@ -1,0 +1,32 @@
+/*В една директория имаме три файла .дат(file1.dat file2.dat
+file3.dat ) които създаваме с командата:
+touch file{1..3}.dat
+и три файла с разширение .фин file1.fin file2.fin
+file3.fin, които създаваме по подобен начин.
+● Напишете скрипт, който да преименува всички файлове .дат във
+файлове с разширение .suxess - file1.suxess file2.suxess file3.suxess , а
+всички файлове с разширение .фин (file1.fin file2.fin
+file3.fin) да се изтрият. Това трябва да стане с един for цикъл.*/
+
+touch file{1..3}.dat // Създавам 3те .dat файла
+
+touch file{1..3}.fin // Създавам 3те .fin файла
+
+cat > rename.sh
+
+#!/bin/bash
+
+for f in *.dat
+do
+    mv "$f" "${f%.*}.suxess" // Преименувам всички .dat файлове на .suxess
+done
+
+for f in *.fin
+do
+    rm "$f"     // Премахвам всички .fin файлове
+done
+
+
+chmod u+x rename.sh
+./rename.sh
+ls
