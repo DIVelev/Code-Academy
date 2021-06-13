@@ -17,3 +17,9 @@ do
     echo " Failed"
 fi
 done > "test_$(date +%F)"  // Redirect-вам output-а на програмата към създадения файл
+
+chmod u+x ping.sh
+
+./ping.sh
+
+ls
