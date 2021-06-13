@@ -1,0 +1,19 @@
+/*Добавете към горния пример променливи, които да създават
+файлове с дата и час, в които ще се записва състоянието на
+сървърите за конкретния ден в който е пуснат скрипта*/
+
+cat > ping.sh
+#!/bin/bash
+touch "test_$(date +%F)" // Създавам файл, който се казва test_ дата с формат за време
+PREFIX=194.145.63
+for OCTET in `seq 1 255`
+do
+  echo -en "Pinginh ${PREFIX}.${OCTET}...."
+  ping -c1 -w1 ${PREFIX}.${OCTET} > /dev/null 2>&1
+  if [ "$?" -eq "0" ]
+  then
+    echo " OK"
+  else
+    echo " Failed"
+fi
+done > "test_$(date +%F)"  // Redirect-вам output-а на програмата към създадения файл
