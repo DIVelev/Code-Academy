@@ -2,6 +2,8 @@
 и на нея и се подават пътищата до папките, в които са файловете за
 промяна чрез пайп.*/
 
+cat > rename1.sh
+
 #!/bin/bash
 while read DIR    /* Прочитам пътя до файла */
 do
@@ -14,3 +16,7 @@ do
 	rm $file
 	done
 done
+
+chmod u+x rename1.sh
+
+./rename1.sh
