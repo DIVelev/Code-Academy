@@ -1,0 +1,22 @@
+/*Пренапишете задача 1 така, че да работи от произволна директория
+и на нея и се подават пътищата до папките, в които са файловете за
+промяна чрез пайп.*/
+
+cat > rename1.sh
+
+#!/bin/bash
+while read DIR    /* Прочитам пътя до файла */
+do
+	echo $DIR
+for file in `ls ${DIR}/*.FIN`   /* Цикъл, докато има файлове .FIN */
+do
+	name=`echo $file | cut -f 1 -d'.'` /* Кътвам името на файла, до разширението */
+	echo $name
+	mv "${name}.DAT" "${name%}.SUCCESS" /* Rename-вам файлове на .SUCCESS */
+	rm $file
+	done
+done
+
+chmod u+x rename1.sh
+
+./rename1.sh
