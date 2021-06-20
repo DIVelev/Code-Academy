@@ -1,0 +1,23 @@
+/*Добавете към масива студенти масив с номера отговарящи на
+курса в който е студента. Използвайте същия фор цикъл за да
+добавите към името на студента неговия нурс в масива */
+
+cat > students.sh
+
+#!/bin/bash
+students=(Micho Pesho 'Jenifer Lopes' "Doctor Kostov")
+course=(1 2 3 4 2 3)
+
+for ((i=0;i<${#students[@]};i++));
+do
+    c+=(${students[i]}${course[i]}); // Записвам в друг масив, иманата на студентите, долепени до курса им
+done
+
+for i in ${c[@]}
+do
+    echo $i
+done
+
+chmod u+x students.sh
+
+./students.sh
