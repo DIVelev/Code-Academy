@@ -1,0 +1,30 @@
+/*Направете двумерен масив 5 на 5, запълнете го с рандом
+стойности и го отпечатайте на екрана.*/
+
+cat > 2darray.sh
+
+#!/bin/bash
+
+declare -A matrix // Декларирам си array с име matrix
+rows=5
+cols=5
+
+for ((i=0;i<rows;i++))
+do
+    for ((j=0;j<cols;j++))
+    do
+        matrix[$i,$j]=$RANDOM // Пълня array-a с рандом числа
+    done
+done
+
+for ((i=0;i<rows;i++))
+do
+    for ((j=0;j<cols;j++))
+    do
+        echo matrix[$i,$j] = $(matrix[$i,$j]) // Принтирам числото на съответния индекс
+    done
+done
+
+chmod u+x 2darray.sh
+
+./2darray.sh
